@@ -1,0 +1,397 @@
+/* ============================================
+   Project Jastar - Aurionis Projects
+   Modern AI/Tech Company Theme
+   ============================================ */
+
+/* CSS Variables (Design Tokens) */
+:root {
+    --primary-dark: #0a0e27;
+    --primary-deep: #0f1235;
+    --primary-blue: #1e3a8a;
+    --accent-cyan: #06b6d4;
+    --accent-purple: #8b5cf6;
+    --accent-glow: #00e5ff;
+    --text-light: #f1f5f9;
+    --text-gray: #94a3b8;
+    --text-white: #ffffff;
+    --card-bg: rgba(30, 41, 59, 0.5);
+    --border-glow: rgba(6, 182, 212, 0.3);
+    --gradient-hero: linear-gradient(135deg, #0a0e27 0%, #0f1235 50%, #1e1b4b 100%);
+    --gradient-card: linear-gradient(145deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+    --shadow-glow: 0 0 20px rgba(6, 182, 212, 0.2);
+    --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--gradient-hero);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-cyan);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-purple);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ============================================
+   Navigation Bar
+   ============================================ */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 14, 39, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-glow);
+    z-index: 1000;
+    padding: 16px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 1.75rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-menu a {
+    color: var(--text-gray);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-menu a:hover,
+.nav-menu a[aria-current="page"] {
+    color: var(--accent-cyan);
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a[aria-current="page"]::after {
+    width: 100%;
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 120px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated background effect */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--text-white) 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.hero p:first-of-type {
+    font-size: 1.5rem;
+    color: var(--accent-cyan);
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    max-width: 700px;
+    margin: 0 auto 32px;
+    color: var(--text-gray);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 14px 36px;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+    color: var(--primary-dark);
+}
+
+/* ============================================
+   Features Section
+   ============================================ */
+.features {
+    padding: 80px 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.features h2,
+.about h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 48px;
+    background: linear-gradient(135deg, var(--text-white), var(--accent-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.feature-card {
+    background: var(--gradient-card);
+    backdrop-filter: blur(8px);
+    padding: 32px 24px;
+    border-radius: 24px;
+    border: 1px solid var(--border-glow);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-cyan);
+    box-shadow: var(--shadow-glow);
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    color: var(--accent-cyan);
+}
+
+.feature-card p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.feature-card strong {
+    color: var(--text-white);
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* ============================================
+   About Section
+   ============================================ */
+.about {
+    padding: 80px 0;
+}
+
+.about .container {
+    max-width: 900px;
+    text-align: center;
+}
+
+.about p {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    margin-bottom: 24px;
+}
+
+.about p:first-of-type {
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.about strong {
+    color: var(--accent-cyan);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+    padding: 32px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-glow);
+    background: rgba(10, 14, 39, 0.95);
+}
+
+.footer p {
+    color: var(--text-gray);
+    font-size: 0.875rem;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .nav-menu {
+        gap: 24px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero {
+        padding: 140px 0 60px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p:first-of-type {
+        font-size: 1.25rem;
+    }
+    
+    .features h2,
+    .about h2 {
+        font-size: 2rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .feature-card {
+        padding: 24px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    .cta-button {
+        padding: 12px 28px;
+        font-size: 0.875rem;
+    }
+    
+    .feature-card h3 {
+        font-size: 1.25rem;
+    }
+}
+
+/* ============================================
+   Animation Classes (for future use)
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-card,
+.hero .container,
+.about .container {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.hero .container {
+    animation-delay: 0.1s;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.2s; }
+.feature-card:nth-child(2) { animation-delay: 0.35s; }
+.feature-card:nth-child(3) { animation-delay: 0.5s; }
