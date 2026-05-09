@@ -94,7 +94,16 @@ body {
     letter-spacing: -0.02em;
     text-transform: uppercase;
 }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+.logo-img {
+    height: 35px;
+    width: auto;
+}
 .nav-menu {
     display: flex;
     gap: 32px;
